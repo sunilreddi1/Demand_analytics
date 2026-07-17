@@ -1,0 +1,9 @@
+,type,MAE,RMSE,R2,Accuracy,Precision,Recall,F1,error
+RF_Regressor,regression,0.0017,0.0282,1.0,,,,,
+GB_Regressor,regression,0.0028,0.0177,1.0,,,,,
+SVR_Regressor,regression,0.9595,1.3286,0.9919,,,,,
+XGB_Regressor,regression,0.0853,0.1891,0.9998,,,,,
+RF_Classifier,classification,,,,0.4595,0.4129,0.4595,0.4207,
+GB_Classifier,classification,,,,0.4592,0.4285,0.4592,0.4373,
+LR_Classifier,classification,,,,0.4616,0.418,0.4616,0.4315,
+XGB_Classifier,classification,,,,,,,,"Invalid classes inferred from unique values of `y`.  Expected: [0 1 2 3], got ['High' 'Low' 'Medium' 'Very High']"

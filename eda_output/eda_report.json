@@ -1,0 +1,420 @@
+{
+  "timestamp": "2026-02-20 20:14:19",
+  "phases": {
+    "phase_1": {
+      "name": "DATA OVERVIEW",
+      "details": {
+        "shape": "30000 rows x 20 columns",
+        "columns": [
+          "id",
+          "company",
+          "title",
+          "domain",
+          "city",
+          "state",
+          "location",
+          "type",
+          "stipend",
+          "duration",
+          "skills",
+          "applications",
+          "rating",
+          "openings",
+          "posted_date",
+          "deadline",
+          "demand_score",
+          "growth_trend",
+          "source",
+          "is_live"
+        ],
+        "dtypes": {
+          "id": "int64",
+          "company": "object",
+          "title": "object",
+          "domain": "object",
+          "city": "object",
+          "state": "object",
+          "location": "object",
+          "type": "object",
+          "stipend": "int64",
+          "duration": "object",
+          "skills": "object",
+          "applications": "int64",
+          "rating": "float64",
+          "openings": "int64",
+          "posted_date": "object",
+          "deadline": "object",
+          "demand_score": "float64",
+          "growth_trend": "float64",
+          "source": "object",
+          "is_live": "bool"
+        },
+        "memory_mb": 23.16,
+        "total_nulls": 0,
+        "duplicates": 0
+      }
+    },
+    "phase_2": {
+      "name": "DATA QUALITY",
+      "details": {
+        "completeness_pct": 100.0,
+        "null_columns": "None",
+        "unique_counts": {
+          "id": 30000,
+          "company": 189,
+          "title": 289,
+          "domain": 30,
+          "city": 31,
+          "state": 20,
+          "location": 31,
+          "type": 3,
+          "stipend": 38,
+          "duration": 6,
+          "skills": 29643,
+          "applications": 4507
+        }
+      }
+    },
+    "phase_3": {
+      "name": "UNIVARIATE NUMERIC",
+      "details": {
+        "statistics": {
+          "id": {
+            "mean": 4273536180.39,
+            "median": 4289579871.5,
+            "std": 213866763.15,
+            "min": 26247390.0,
+            "max": 4289594871.0,
+            "skew": -14.897,
+            "kurtosis": 234.457
+          },
+          "stipend": {
+            "mean": 34611.65,
+            "median": 25000.0,
+            "std": 28391.3,
+            "min": 125.0,
+            "max": 100000.0,
+            "skew": 0.896,
+            "kurtosis": -0.344
+          },
+          "applications": {
+            "mean": 2294.8,
+            "median": 2283.0,
+            "std": 1302.73,
+            "min": 50.0,
+            "max": 4954.0,
+            "skew": 0.011,
+            "kurtosis": -1.202
+          },
+          "rating": {
+            "mean": 4.0,
+            "median": 4.0,
+            "std": 0.58,
+            "min": 3.0,
+            "max": 5.0,
+            "skew": -0.007,
+            "kurtosis": -1.191
+          },
+          "openings": {
+            "mean": 13.04,
+            "median": 13.0,
+            "std": 7.23,
+            "min": 1.0,
+            "max": 25.0,
+            "skew": -0.005,
+            "kurtosis": -1.206
+          },
+          "demand_score": {
+            "mean": 51.93,
+            "median": 52.0,
+            "std": 14.88,
+            "min": 15.2,
+            "max": 98.7,
+            "skew": 0.166,
+            "kurtosis": -0.483
+          },
+          "growth_trend": {
+            "mean": 15.1,
+            "median": 15.2,
+            "std": 11.57,
+            "min": -5.0,
+            "max": 35.0,
+            "skew": -0.01,
+            "kurtosis": -1.198
+          }
+        }
+      }
+    },
+    "phase_4": {
+      "name": "UNIVARIATE CATEGORICAL",
+      "details": {
+        "frequency_tables": {
+          "company": {
+            "Newgen Software": 295,
+            "Tanla Platforms": 295,
+            "Amdocs India": 295,
+            "LTTS": 295,
+            "Google India": 295,
+            "Microsoft": 295,
+            "Amazon": 295,
+            "Flipkart": 295
+          },
+          "title": {
+            "Embedded Systems Intern": 1375,
+            "IT Support Intern": 1045,
+            "AR/VR Development Intern": 1012,
+            "Natural Language Processing Intern": 1011,
+            "Computer Vision Intern": 1008,
+            "Network Engineering Intern": 1008,
+            "Quantum Computing Intern": 998,
+            "Robotics Intern": 961
+          },
+          "domain": {
+            "Web Development": 1070,
+            "Mobile Development": 1068,
+            "Digital Marketing": 1049,
+            "IT Support": 1045,
+            "Cybersecurity": 1025,
+            "Software Development": 1022,
+            "Business Analytics": 1021,
+            "Full Stack Development": 1019
+          },
+          "city": {
+            "Bangalore": 1174,
+            "Patna": 1045,
+            "Bhubaneswar": 1043,
+            "Noida": 1034,
+            "Hyderabad": 1029,
+            "Chandigarh": 1025,
+            "Vijayawada": 1018,
+            "Dehradun": 1017
+          },
+          "state": {
+            "Karnataka": 4113,
+            "Maharashtra": 2890,
+            "Gujarat": 2858,
+            "Uttar Pradesh": 2009,
+            "Tamil Nadu": 1990,
+            "Andhra Pradesh": 1980,
+            "Kerala": 1976,
+            "Bihar": 1045
+          },
+          "location": {
+            "Bangalore, Karnataka": 1174,
+            "Patna, Bihar": 1045,
+            "Bhubaneswar, Odisha": 1043,
+            "Noida, Uttar Pradesh": 1034,
+            "Hyderabad, Telangana": 1029,
+            "Chandigarh, Punjab": 1025,
+            "Vijayawada, Andhra Pradesh": 1018,
+            "Dehradun, Uttarakhand": 1017
+          },
+          "type": {
+            "Remote": 10123,
+            "On-site": 9956,
+            "Hybrid": 9921
+          },
+          "duration": {
+            "3 Months": 5105,
+            "6 Months": 5059,
+            "2 Months": 5010,
+            "12 Months": 4993,
+            "1 Month": 4976,
+            "4 Months": 4857
+          }
+        }
+      }
+    },
+    "phase_5": {
+      "name": "BIVARIATE ANALYSIS",
+      "details": {
+        "stipend_vs_apps_corr": -0.005,
+        "avg_stipend_by_domain": {
+          "Frontend Development": 35999,
+          "DevOps": 35888,
+          "Quantum Computing": 35854,
+          "Product Management": 35794,
+          "Backend Development": 35733,
+          "Mobile Development": 35623,
+          "Embedded Systems": 35560,
+          "Business Analytics": 35410,
+          "Network Engineering": 35124,
+          "Data Engineering": 35114
+        },
+        "avg_apps_by_type": {
+          "Hybrid": 2286,
+          "On-site": 2306,
+          "Remote": 2293
+        },
+        "avg_apps_by_city": {
+          "Bangalore": 2391,
+          "Guwahati": 2381,
+          "Vadodara": 2378,
+          "Hyderabad": 2377,
+          "Ahmedabad": 2354,
+          "Ranchi": 2351,
+          "Jaipur": 2349,
+          "Gurgaon": 2340,
+          "Thiruvananthapuram": 2330,
+          "Nagpur": 2329
+        }
+      }
+    },
+    "phase_6": {
+      "name": "MULTIVARIATE",
+      "details": {
+        "strong_correlations": [
+          "stipend <-> demand_score: 0.565",
+          "applications <-> demand_score: 0.768"
+        ],
+        "numeric_columns_analyzed": [
+          "id",
+          "stipend",
+          "applications",
+          "rating",
+          "openings",
+          "demand_score",
+          "growth_trend"
+        ]
+      }
+    },
+    "phase_7": {
+      "name": "DOMAIN ANALYSIS",
+      "details": {
+        "domain_distribution": {
+          "Web Development": 1070,
+          "Mobile Development": 1068,
+          "Digital Marketing": 1049,
+          "IT Support": 1045,
+          "Cybersecurity": 1025,
+          "Software Development": 1022,
+          "Business Analytics": 1021,
+          "Full Stack Development": 1019,
+          "AR/VR Development": 1012,
+          "Embedded Systems": 1012,
+          "Natural Language Processing": 1011,
+          "UI/UX Design": 1010,
+          "Computer Vision": 1008,
+          "Network Engineering": 1008,
+          "Data Science": 1007,
+          "Machine Learning": 1003,
+          "Quantum Computing": 998,
+          "IoT": 995,
+          "Backend Development": 990,
+          "Frontend Development": 984,
+          "Quality Assurance": 982,
+          "Product Management": 981,
+          "Data Engineering": 974,
+          "Game Development": 972,
+          "Cloud Computing": 970,
+          "AI Research": 962,
+          "Robotics": 961,
+          "DevOps": 957,
+          "Blockchain": 949,
+          "Technical Writing": 935
+        },
+        "avg_demand_by_domain": {
+          "Data Science": 53.0,
+          "Embedded Systems": 52.7,
+          "UI/UX Design": 52.7,
+          "Cybersecurity": 52.6,
+          "Web Development": 52.5,
+          "Network Engineering": 52.5,
+          "Game Development": 52.2,
+          "DevOps": 52.2,
+          "Technical Writing": 52.2,
+          "Frontend Development": 52.1
+        }
+      }
+    },
+    "phase_8": {
+      "name": "LOCATION ANALYSIS",
+      "details": {
+        "city_distribution": {
+          "Bangalore": 1174,
+          "Patna": 1045,
+          "Bhubaneswar": 1043,
+          "Noida": 1034,
+          "Hyderabad": 1029,
+          "Chandigarh": 1025,
+          "Vijayawada": 1018,
+          "Dehradun": 1017,
+          "Delhi NCR": 1012,
+          "Gurgaon": 1012,
+          "Indore": 1007,
+          "Kochi": 1004,
+          "Mysore": 997,
+          "Mangalore": 997,
+          "Chennai": 997
+        },
+        "avg_stipend_by_city": {
+          "Thiruvananthapuram": 37107,
+          "Vijayawada": 35884,
+          "Kochi": 35767,
+          "Bhubaneswar": 35581,
+          "Mumbai": 35544,
+          "Hubli": 35522,
+          "Dehradun": 35490,
+          "Coimbatore": 35274,
+          "Vadodara": 35242,
+          "Surat": 35174
+        }
+      }
+    },
+    "phase_9": {
+      "name": "SKILLS ANALYSIS",
+      "details": {
+        "top_25_skills": {
+          "Python": 1553,
+          "RabbitMQ": 1540,
+          "JavaScript": 1529,
+          "CI/CD": 1527,
+          "Keras": 1525,
+          "React": 1521,
+          "SEO": 1520,
+          "NumPy": 1518,
+          "Flutter": 1516,
+          "Linux": 1515,
+          "Git": 1507,
+          "Scrum": 1506,
+          "Swift": 1493,
+          "TensorFlow": 1492,
+          "Figma": 1492,
+          "Terraform": 1491,
+          "TypeScript": 1488,
+          "Solidity": 1485,
+          "Machine Learning": 1484,
+          "Vite": 1477,
+          "AWS": 1475,
+          "MATLAB": 1475,
+          "Flask": 1475,
+          "Pytest": 1475,
+          "Sass": 1474
+        },
+        "total_unique_skills": 216,
+        "avg_skills_per_listing": 4.5
+      }
+    },
+    "phase_10": {
+      "name": "TREND ANALYSIS",
+      "details": {
+        "monthly_postings": {
+          "Month 1": 2521,
+          "Month 2": 2718,
+          "Month 3": 2474,
+          "Month 4": 2497,
+          "Month 5": 2445,
+          "Month 6": 2398,
+          "Month 7": 2543,
+          "Month 8": 2507,
+          "Month 9": 2502,
+          "Month 10": 2431,
+          "Month 11": 2408,
+          "Month 12": 2556
+        },
+        "avg_growth": 15.1,
+        "positive_growth_pct": 87.6
+      }
+    }
+  }
+}

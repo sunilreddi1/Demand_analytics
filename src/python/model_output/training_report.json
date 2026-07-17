@@ -1,0 +1,54 @@
+{
+  "timestamp": "2026-02-20 11:35:23",
+  "results": {
+    "RF_Regressor": {
+      "type": "regression",
+      "MAE": 0.0017,
+      "RMSE": 0.0282,
+      "R2": 1.0
+    },
+    "GB_Regressor": {
+      "type": "regression",
+      "MAE": 0.0028,
+      "RMSE": 0.0177,
+      "R2": 1.0
+    },
+    "SVR_Regressor": {
+      "type": "regression",
+      "MAE": 0.9595,
+      "RMSE": 1.3286,
+      "R2": 0.9919
+    },
+    "XGB_Regressor": {
+      "type": "regression",
+      "MAE": 0.0853,
+      "RMSE": 0.1891,
+      "R2": 0.9998
+    },
+    "RF_Classifier": {
+      "type": "classification",
+      "Accuracy": 0.4595,
+      "Precision": 0.4129,
+      "Recall": 0.4595,
+      "F1": 0.4207
+    },
+    "GB_Classifier": {
+      "type": "classification",
+      "Accuracy": 0.4592,
+      "Precision": 0.4285,
+      "Recall": 0.4592,
+      "F1": 0.4373
+    },
+    "LR_Classifier": {
+      "type": "classification",
+      "Accuracy": 0.4616,
+      "Precision": 0.418,
+      "Recall": 0.4616,
+      "F1": 0.4315
+    },
+    "XGB_Classifier": {
+      "type": "classification",
+      "error": "Invalid classes inferred from unique values of `y`.  Expected: [0 1 2 3], got ['High' 'Low' 'Medium' 'Very High']"
+    }
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "timestamp": "2026-02-20 20:14:28",
+  "phases": {
+    "phase_1": {
+      "name": "DATA LOADING & INSPECTION",
+      "details": {
+        "rows": 30000,
+        "columns": 20,
+        "column_names": [
+          "id",
+          "company",
+          "title",
+          "domain",
+          "city",
+          "state",
+          "location",
+          "type",
+          "stipend",
+          "duration",
+          "skills",
+          "applications",
+          "rating",
+          "openings",
+          "posted_date",
+          "deadline",
+          "demand_score",
+          "growth_trend",
+          "source",
+          "is_live"
+        ],
+        "numeric_columns": [
+          "id",
+          "stipend",
+          "applications",
+          "rating",
+          "openings",
+          "demand_score",
+          "growth_trend"
+        ],
+        "memory_mb": 23.16,
+        "total_nulls": 0
+      }
+    },
+    "phase_2": {
+      "name": "MISSING VALUE TREATMENT",
+      "details": {
+        "nulls_before": 0,
+        "nulls_after": 0,
+        "columns_filled": {}
+      }
+    },
+    "phase_3": {
+      "name": "DUPLICATE REMOVAL",
+      "details": {
+        "rows_before": 30000,
+        "rows_after": 27393,
+        "removed": 2607
+      }
+    },
+    "phase_4": {
+      "name": "DATA TYPE CONVERSION",
+      "details": {
+        "conversions": {
+          "posted_date": "datetime",
+          "deadline": "datetime",
+          "stipend": "float64",
+          "applications": "int64",
+          "rating": "float64",
+          "openings": "int64",
+          "demand_score": "float64",
+          "growth_trend": "float64"
+        }
+      }
+    },
+    "phase_5": {
+      "name": "OUTLIER HANDLING (IQR)",
+      "details": {
+        "total_capped": 20,
+        "details": {
+          "stipend": "0 capped [-45000.0, 107000.0]",
+          "applications": "0 capped [-2221.5, 6814.5]",
+          "rating": "0 capped [2.0, 6.0]",
+          "openings": "0 capped [-11.0, 37.0]",
+          "demand_score": "20 capped [8.5, 94.4]",
+          "growth_trend": "0 capped [-24.8, 54.8]"
+        }
+      }
+    },
+    "phase_6": {
+      "name": "TEXT NORMALIZATION",
+      "details": {
+        "operations": {
+          "company": "strip + title case",
+          "domain": "strip + title case",
+          "city": "strip + title case",
+          "title": "strip + title case",
+          "state": "strip + title case",
+          "type": "standardized"
+        }
+      }
+    },
+    "phase_7": {
+      "name": "FEATURE ENGINEERING",
+      "details": {
+        "new_features": [
+          "stipend_category",
+          "duration_months",
+          "skill_count",
+          "is_remote",
+          "is_hybrid",
+          "city_tier",
+          "company_listing_count",
+          "is_large_company",
+          "stipend_per_opening",
+          "app_density",
+          "log_applications",
+          "log_stipend",
+          "norm_rating",
+          "domain_avg_stipend",
+          "domain_avg_apps",
+          "has_ml_skills",
+          "has_web_skills",
+          "post_month",
+          "post_quarter",
+          "is_peak"
+        ],
+        "total_new": 20,
+        "columns_now": 40
+      }
+    },
+    "phase_8": {
+      "name": "CATEGORICAL ENCODING",
+      "details": {
+        "encoded": {
+          "domain": "domain_enc (30 classes)",
+          "city": "city_enc (31 classes)",
+          "company": "company_enc (189 classes)",
+          "type": "type_enc (3 classes)",
+          "state": "state_enc (20 classes)",
+          "title": "title_enc (289 classes)",
+          "type_onehot": [
+            "type_Hybrid",
+            "type_On-Site",
+            "type_Remote"
+          ],
+          "stipend_category_onehot": [
+            "stipend_category_High",
+            "stipend_category_Low",
+            "stipend_category_Medium",
+            "stipend_category_Very High",
+            "stipend_category_Very Low"
+          ]
+        },
+        "columns_now": 54
+      }
+    },
+    "phase_9": {
+      "name": "SKILL VECTORIZATION",
+      "details": {
+        "skills_vectorized": 80,
+        "columns_now": 134
+      }
+    },
+    "phase_10": {
+      "name": "TARGET CREATION",
+      "details": {
+        "regression_target": "target_reg",
+        "classification_target": "target_cls",
+        "class_distribution": {
+          "High": 13082,
+          "Medium": 11868,
+          "Very High": 1829,
+          "Low": 614
+        }
+      }
+    },
+    "phase_11": {
+      "name": "FEATURE SCALING",
+      "details": {
+        "columns_scaled": 119,
+        "scaler": "StandardScaler"
+      }
+    },
+    "phase_12": {
+      "name": "FEATURE SELECTION",
+      "details": {
+        "features_selected": 115,
+        "sample": [
+          "stipend",
+          "applications",
+          "rating",
+          "openings",
+          "demand_score",
+          "growth_trend",
+          "duration_months",
+          "skill_count",
+          "is_remote",
+          "is_hybrid",
+          "city_tier",
+          "company_listing_count",
+          "is_large_company",
+          "stipend_per_opening",
+          "app_density",
+          "log_applications",
+          "log_stipend",
+          "domain_avg_stipend",
+          "domain_avg_apps",
+          "has_ml_skills"
+        ]
+      }
+    },
+    "phase_13": {
+      "name": "TRAIN/TEST SPLIT",
+      "details": {
+        "split": "80/20",
+        "info": {
+          "regression": {
+            "train": 21914,
+            "test": 5479
+          },
+          "classification_train_dist": {
+            "High": 10466,
+            "Medium": 9494,
+            "Very High": 1463,
+            "Low": 491
+          }
+        }
+      }
+    }
+  },
+  "summary": {
+    "original": [
+      30000,
+      20
+    ],
+    "final": [
+      27393,
+      136
+    ],
+    "features": 115
+  }
+}

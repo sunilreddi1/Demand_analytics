@@ -1,0 +1,59 @@
+======================================================================
+  INTERNMATCH AI - MODEL TRAINING REPORT
+  Generated: 2026-02-19 20:39:58
+======================================================================
+
+
+--- RandomForest_Regressor ---
+  type: regression
+  MAE: 21.3263
+  RMSE: 24.7126
+  R2: -0.02
+  MAPE: 65.39
+  CV_R2_mean: -0.0227
+  CV_R2_std: 0.0052
+
+--- GradientBoosting_Regressor ---
+  type: regression
+  MAE: 21.2834
+  RMSE: 24.7402
+  R2: -0.0223
+  MAPE: 65.31
+  CV_R2_mean: -0.0232
+  CV_R2_std: 0.0022
+
+--- SVR_Regressor ---
+  type: regression
+  MAE: 21.1543
+  RMSE: 24.4855
+  R2: -0.0013
+  MAPE: 64.88
+  CV_R2_mean: -0.001
+  CV_R2_std: 0.0008
+
+--- RandomForest_Classifier ---
+  type: classification
+  Accuracy: 0.2747
+  Precision: 0.2581
+  Recall: 0.2747
+  F1: 0.2423
+  CV_Accuracy_mean: 0.2763
+  CV_Accuracy_std: 0.003
+
+--- GradientBoosting_Classifier ---
+  type: classification
+  Accuracy: 0.2805
+  Precision: 0.261
+  Recall: 0.2805
+  F1: 0.2476
+  CV_Accuracy_mean: 0.2826
+  CV_Accuracy_std: 0.0046
+
+--- LogisticRegression_Classifier ---
+  type: classification
+  Accuracy: 0.2953
+  Precision: 0.1768
+  Recall: 0.2953
+  F1: 0.207
+  CV_Accuracy_mean: 0.2966
+  CV_Accuracy_std: 0.003
