@@ -1,26 +1,25 @@
 # Internship Prediction & Recommendation System
 
-This project is a full-stack internship discovery platform that combines a React frontend, a Flask backend, and machine learning components. It helps users explore internships, predict demand, receive recommendations, and analyze internship data.
+A full-stack internship discovery platform built with React, TypeScript, Vite, Flask, and Python. It helps users browse internships, predict demand, receive recommendations, and track applied opportunities.
 
 ## Overview
 
-The application is designed for students and job seekers who want a smarter way to discover internships. It provides:
+This project is designed for students and job seekers who want a smarter way to discover internships. It includes:
 
-- a modern dashboard for browsing internships
+- a modern dashboard for browsing 30,000+ internship listings
 - a Flask API for predictions and recommendations
 - analytics over internship listings and trends
+- persistent application tracking with local and server-backed storage
 - optional resume parsing and matching features
 
 ## Key Features
 
-- Frontend built with React, TypeScript, and Vite
-- Backend built with Flask and Python
-- Internship browsing with filtering by domain, city, source, and search text
-- Prediction API for internship demand scoring
-- Recommendation engine for personalized internship results
-- Analytics endpoints for summary statistics
-- Live data fetching support and cached datasets
-- Docker support for container-based deployment
+- Browse internships with filters for domain, city, source, and search text
+- Predict internship demand using a trained ML model
+- Get personalized internship recommendations based on student profile
+- Save and manage applied internships from the UI
+- Export applied internships as CSV
+- Support live data fetching and cached datasets
 
 ## Tech Stack
 
@@ -28,7 +27,7 @@ The application is designed for students and job seekers who want a smarter way 
 - React 19
 - TypeScript
 - Vite
-- Tailwind-compatible styling setup
+- Tailwind-compatible styling
 
 ### Backend
 - Python 3.10+
@@ -37,12 +36,6 @@ The application is designed for students and job seekers who want a smarter way 
 - Pandas, NumPy, Scikit-learn
 - XGBoost
 - Streamlit (optional dashboard)
-
-### Data & ML
-- Internship data generation and caching
-- Model training and evaluation utilities
-- Preprocessing and feature engineering pipelines
-- Resume parsing and skill matching
 
 ## Project Structure
 
@@ -67,6 +60,7 @@ The application is designed for students and job seekers who want a smarter way 
 ├── scripts/
 │   ├── start-dev.ps1
 │   └── stop-dev.ps1
+├── .github/workflows/deploy.yml
 ├── docker-compose.yml
 ├── Dockerfile.frontend
 ├── package.json
@@ -78,9 +72,9 @@ The application is designed for students and job seekers who want a smarter way 
 Make sure the following are installed:
 
 - Node.js 18+ and npm
-- Python 3.10+ 
+- Python 3.10+
 - Windows PowerShell (recommended for the provided scripts)
-- Docker (optional, for containerized deployment)
+- Docker (optional)
 
 ## Setup Instructions
 
@@ -112,50 +106,11 @@ python -m pip install --upgrade pip
 python -m pip install -r src/python/requirements.txt
 ```
 
-### 5. Optional environment variables
+## Running Locally
 
-The app can run without additional secrets for the default local dataset, but you may optionally set:
+### Quick Start
 
-- `FLASK_RUN_HOST`
-- `FLASK_RUN_PORT`
-
-Example:
-
-```powershell
-$env:FLASK_RUN_HOST = "0.0.0.0"
-$env:FLASK_RUN_PORT = "5000"
-```
-
-## Running the Project Locally
-
-### Quick start (recommended on Windows)
-
-From the repository root, run:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\start-dev.ps1
-```
-
-This will start:
-
-- Backend API at http://127.0.0.1:5000/
-- Frontend at http://127.0.0.1:5173/
-
-### Stop the local services
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\stop-dev.ps1
-```
-
-### Manual start
-
-#### Start the frontend
-
-```powershell
-npm run dev -- --host 0.0.0.0 --port 5173
-```
-
-#### Start the backend
+Start the backend in one terminal:
 
 ```powershell
 $env:FLASK_RUN_HOST = "0.0.0.0"
@@ -163,107 +118,142 @@ $env:FLASK_RUN_PORT = "5000"
 python src/python/flask_app.py
 ```
 
-#### Optional: launch Streamlit
+Start the frontend in another terminal:
 
 ```powershell
-streamlit run src/python/streamlit_app.py
+npm run dev -- --host 0.0.0.0 --port 5173
 ```
 
-## Screenshots
+Open the app at:
 
-You can add screenshots of the following views to make the project easier to understand:
+- http://localhost:5173
+- Backend API: http://localhost:5000
 
-- home page
-- internship exploration page
-- recommendation page
-- prediction page
-- analytics dashboard
+### PowerShell helper scripts
 
-Example placeholder:
+From the repository root:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\start-dev.ps1
+```
+
+To stop the services:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\stop-dev.ps1
+```
+
+## Deploying to GitHub Pages
+
+The frontend is configured for GitHub Pages deployment.
+
+### Deploy automatically
+
+Push the repository to GitHub and enable GitHub Actions in the repository settings:
+
+1. Go to Settings → Pages
+2. Choose GitHub Actions as the source
+3. Push to the main branch
+4. Wait for the workflow in .github/workflows/deploy.yml to complete
+
+Your site will be available at:
 
 ```text
-![Home Page](docs/screenshots/home-page.png)
-![Explore Page](docs/screenshots/explore-page.png)
-![Recommendation Page](docs/screenshots/recommendation-page.png)
+https://<your-github-username>.github.io/internship-prediction-recommendation-system/
 ```
 
-If you want, you can add the actual images under a docs/screenshots folder and update the paths accordingly.
+> Note: GitHub Pages hosts the frontend only. The Flask backend remains local unless you deploy it separately to a service such as Render, Railway, or Fly.io.
+
+## Optional: Run the Streamlit Dashboard
+
+```powershell
+streamlit run src/python/streamlit_app.py --server.port 8501
+```
 
 ## How to Use the App
 
-### 1. Open the frontend
+1. Open the frontend at http://localhost:5173
+2. Browse internships on the Explore page
+3. Use the Recommendation page to get tailored suggestions
+4. Use the Prediction page to estimate internship demand
+5. Save internships from the Explore or Applied pages
+6. Export your applied internships as CSV
 
-After starting the services, open:
 
-- http://127.0.0.1:5173/
+### 6. Review Analytics
 
-### 2. Browse internships
+Open the **Dashboard** to understand:
+- Total internship count (30,000+)
+- Live versus generated listings
+- Top domains and skills
+- Stipend ranges
+- General trends in the dataset
+- Monthly trends and growth forecasts
 
-Use the Explore page to:
-- search internship titles or skills
-- filter by domain, city, or source
-- view internship details and available metadata
+### 7. Resume-Based Search
 
-### 3. Get recommendations
-
-Go to the Recommendation page and provide your profile details such as:
-- skills
-- interests
-- preferred location
-- minimum stipend
-
-The system will rank internships that best match your profile.
-
-### 4. Use the prediction feature
-
-On the Prediction page, enter internship-related input values to see a demand score and the factors influencing the result.
-
-### 5. Review analytics
-
-Open the Dashboard or Analytics view to understand:
-- total internship count
-- live versus generated listings
-- top domains and skills
-- general trends in the dataset
-
-### 6. Manage applied internships
-
-Use the applied/internship tracking flow to save and review internships you have already applied to.
+Use the **Resume Search** page to:
+- Upload or paste your resume
+- Extract skills automatically
+- Get ranked internship matches based on resume content
 
 ## API Endpoints
 
 The Flask backend exposes the following endpoints:
 
-- `GET /` — health/status overview
-- `GET /api/internships` — list internships with pagination and filters
-- `POST /api/predict` — predict a demand score for a given internship payload
-- `POST /api/recommend` — generate internship recommendations for a student profile
-- `GET /api/analytics` — summarized analytics data
-- `POST /api/resume/parse` — parse a resume text payload
-- `POST /api/resume/search` — search internships based on parsed resume data
+### Core Internship Endpoints
+- `GET /api/internships` — list internships with pagination, filters, search
 - `GET /api/domains` — list available domains
 - `GET /api/cities` — list available cities
 - `GET /api/skills` — list available skills
-- `GET /api/applied` and `POST /api/applied` — manage applied internship IDs
 - `GET /api/sources` — show internship source counts
+
+### Predictions & Recommendations
+- `POST /api/predict` — predict a demand score for a given internship payload
+- `POST /api/recommend` — generate personalized internship recommendations
+
+### Applied Applications (NEW)
+- `GET /api/applied` — fetch all applied application IDs
+- `POST /api/applied` — add or remove an application
+  ```json
+  { "id": <int>, "action": "add"|"remove" }
+  ```
+
+### Analytics & Data
+- `GET /api/analytics` — summarized analytics data
+- `GET /api/sources` — internship source distribution
+
+### Resume Processing
+- `POST /api/resume/parse` — parse a resume text payload
+- `POST /api/resume/search` — search internships based on parsed resume data
+
+### Live Data
 - `GET /api/live/fetch` — fetch live internships from external sources
 - `GET /api/live/status` — report live-data status
 
-## Data Sources and Generated Artifacts
+### System
+- `GET /` — health/status overview
 
+## Data Sources and Persistence
+
+### Live Data & Caching
 The project includes support for:
+- Cached live data from integrated sources (Indeed, Internshala, Adzuna, GitHub Jobs, RemoteOK)
+- 226 live listings cached locally
+- 29,774 generated internships for diversity
+- **Total: 30,000+ internships**
 
-- Generated internship data
-- Cached live data from integrated sources
-- Preprocessed training datasets
-- Model output and reports
+### Applied Applications Storage
+- **File:** `src/python/applied_applications.json`
+- **Format:** JSON array of internship IDs
+- **Lifecycle:** Server-side persistent storage that survives app restarts
 
+### Data Artifacts
 Typical artifact folders include:
-
-- `src/python/live_data/`
-- `src/python/model_output/`
-- `src/python/preprocessing_output/`
-- `src/python/exports/`
+- `src/python/live_data/` — cached live job listings
+- `src/python/model_output/` — trained models and feature importance
+- `src/python/preprocessing_output/` — processed datasets and features
+- `src/python/exports/` — CSV and JSON exports
 
 ## Docker Deployment
 
@@ -272,15 +262,20 @@ The repository includes Docker configuration for container-based deployment.
 ### Build and run with Docker Compose
 
 ```powershell
-docker compose up --build
+docker compose build
+docker compose up
 ```
 
 This will build the frontend and backend containers defined in `docker-compose.yml`.
 
 ### Access points after Docker deployment
 
-- Frontend: http://localhost:3000/
-- Backend: http://localhost:5000/
+- Frontend: http://localhost:3000/ (Nginx)
+- Backend: http://localhost:5000/ (Flask)
+
+### Docker Services
+- **Backend** (`src/python/Dockerfile`): Flask API on port 5000
+- **Frontend** (`Dockerfile.frontend`): Nginx on port 80 (mapped to 3000)
 
 ## Make It Permanent on Windows
 

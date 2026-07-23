@@ -7,9 +7,12 @@ import { viteSingleFile } from "vite-plugin-singlefile";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1] || '';
+const base = process.env.GITHUB_ACTIONS ? `/${repoName}/` : '/';
 
 // https://vite.dev/config/
 export default defineConfig({
+  base,
   server: {
     // Replace with your actual local network IP, e.g. 192.168.1.123
     host: process.env.VITE_DEV_HOST || '0.0.0.0',
