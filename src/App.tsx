@@ -10,6 +10,8 @@ import { ResumeSearchPage } from './pages/ResumeSearchPage';
 import { AppliedPage } from './pages/AppliedPage';
 import { generateInternships, type StudentProfile } from './data/internships';
 
+const API_BASE = (import.meta as any)?.env?.VITE_API_URL || 'http://localhost:5000';
+
 export function App() {
   const [activePage, setActivePage] = useState('home');
   const [pageHistory, setPageHistory] = useState<string[]>(['home']);
@@ -59,7 +61,7 @@ export function App() {
       const adding = !next.has(id);
       if (adding) next.add(id); else next.delete(id);
       // send update to backend (best-effort)
-      fetch('http://localhost:5000/api/applied', {
+      fetch(`${API_BASE}/api/applied`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id, action: adding ? 'add' : 'remove' }),
@@ -71,7 +73,7 @@ export function App() {
   // load persisted applied IDs from backend once on mount
   useEffect(() => {
     let mounted = true;
-    fetch('http://localhost:5000/api/applied')
+    fetch(`${API_BASE}/api/applied`)
       .then(r => r.json())
       .then((data) => {
         if (!mounted) return;
