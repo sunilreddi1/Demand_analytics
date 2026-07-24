@@ -143,6 +143,67 @@ To stop the services:
 powershell -ExecutionPolicy Bypass -File .\scripts\stop-dev.ps1
 ```
 
+## Running Frontend with Permanent Background Server
+
+For a **permanent local URL that stays active** without needing a terminal open:
+
+### One-Time Setup
+
+```powershell
+# 1. Install PM2 globally
+npm install -g pm2
+
+# 2. Build the frontend for production
+npm run build
+
+# 3. Install server dependencies
+npm install express compression
+
+# 4. Start the server permanently in background
+pm2 start server.js --name "internship-app"
+
+# 5. Save the PM2 process list
+pm2 save
+```
+
+### Access Your App
+
+Your app is now available at: **http://localhost:8000**
+
+The server runs **permanently in the background** and will continue running even after you close all terminals and VS Code.
+
+### Restarting or Managing the Server
+
+```powershell
+# Check server status
+pm2 status
+
+# Restart server after making code changes
+pm2 restart internship-app
+
+# Stop the server
+pm2 stop internship-app
+
+# Start the saved processes
+pm2 resurrect
+
+# View server logs
+pm2 logs internship-app
+```
+
+### One-Click Startup (Next Time)
+
+Double-click: `start-background-server.bat`
+
+### Update Workflow
+
+1. Edit your code in VS Code
+2. Run: `npm run build`
+3. Server automatically picks up changes
+4. Refresh browser at **http://localhost:8000**
+
+---
+
 ## Deploying to GitHub Pages
 
 The frontend is configured for GitHub Pages deployment.
@@ -172,7 +233,8 @@ streamlit run src/python/streamlit_app.py --server.port 8501
 
 ## How to Use the App
 
-1. Open the frontend at http://localhost:5173
+1. Open the frontend at http://localhost:npm
+5173
 2. Browse internships on the Explore page
 3. Use the Recommendation page to get tailored suggestions
 4. Use the Prediction page to estimate internship demand
