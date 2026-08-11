@@ -117,13 +117,34 @@ python -m pip install -r src/python/requirements.txt
 
 ## Running Locally
 
+### Start the Streamlit Dashboard
+
+If port `8501` is available:
+
+`powershell
+cd C:\Users\sunil\Downloads\internship-prediction-recommendation-system
+.\.venv\Scripts\Activate.ps1
+python -m streamlit run src/python/streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+`
+
+If port `8501` is already in use, start on `8502` instead:
+
+`powershell
+python -m streamlit run src/python/streamlit_app.py --server.port 8502 --server.address 0.0.0.0
+`
+
+Open the dashboard in your browser at:
+
+- `http://localhost:8501` or
+- `http://localhost:8502`
+
 ### Start the backend
 
 In one terminal:
 
 `powershell
- =  0.0.0.0
- = 5000
+$env:FLASK_RUN_HOST='0.0.0.0'
+$env:FLASK_RUN_PORT='5000'
 python src/python/flask_app.py
 `
 
