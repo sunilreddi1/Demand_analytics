@@ -217,3 +217,8 @@ streamlit run src/python/streamlit_app.py --server.port 8501
 
 - Local build and temporary files are excluded via .gitignore.
 - Large local data files such as preprocessing_output/processed_data.csv and tmp_repos_backup/ are not tracked in git.
+- Open the dashboard in your browser at:
+
+- Local URL: http://localhost:8502
+- Network URL: http://192.168.0.100:8502
+- External URL: http://49.205.203.124:8502
