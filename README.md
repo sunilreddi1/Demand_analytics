@@ -13,6 +13,15 @@ It includes:
 - persistent application tracking with local and server-backed storage
 - optional resume parsing and matching features
 
+## Stealite Deployment
+
+This repository is configured to host the Streamlit dashboard on a Stealite-compatible Python runtime.
+
+- `Procfile` starts the dashboard with `streamlit run src/python/streamlit_app.py`
+- `runtime.txt` pins Python to `python-3.11.12`
+- Root `requirements.txt` installs the Python dependencies for Streamlit and the dashboard
+- `.streamlit/config.toml` enables headless hosting and a dark theme
+
 ## Key Features
 
 - Browse internships with filters for domain, city, source, and search text
