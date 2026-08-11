@@ -119,17 +119,19 @@ python -m pip install -r src/python/requirements.txt
 
 ### Start the Streamlit Dashboard
 
-Run the Streamlit app on port `8501`:
+Run the Streamlit app on port `8502`:
 
 ```powershell
 cd C:\Users\sunil\Downloads\internship-prediction-recommendation-system
 .\.venv\Scripts\Activate.ps1
-python -m streamlit run src/python/streamlit_app.py --server.port 8501 --server.address 0.0.0.0
+python -m streamlit run src/python/streamlit_app.py --server.port 8502 --server.address 0.0.0.0
 ```
 
 Open the dashboard in your browser at:
 
-- `http://localhost:8501`
+- Local URL: http://localhost:8502
+- Network URL: http://192.168.0.100:8502
+- External URL: http://49.205.203.124:8502
 
 ### Start the backend
 
