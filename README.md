@@ -1,4 +1,4 @@
-﻿# Internship Prediction & Recommendation System
+# Internship Prediction & Recommendation System
 
 A full-stack internship discovery platform built with React, TypeScript, Vite, Flask, and Python. It helps users browse internships, predict demand, receive recommendations, and track applied opportunities.
 
@@ -143,8 +143,8 @@ Open the dashboard in your browser at:
 In one terminal:
 
 `powershell
-$env:FLASK_RUN_HOST='0.0.0.0'
-$env:FLASK_RUN_PORT='5000'
+ =  0.0.0.0
+ = 5000
 python src/python/flask_app.py
 `
 
