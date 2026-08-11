@@ -1,4 +1,4 @@
-# Internship Prediction & Recommendation System
+﻿# Internship Prediction & Recommendation System
 
 A full-stack internship discovery platform built with React, TypeScript, Vite, Flask, and Python. It helps users browse internships, predict demand, receive recommendations, and track applied opportunities.
 
@@ -49,7 +49,7 @@ This repository is configured to host the Streamlit dashboard on a Stealite-comp
 
 ## Project Structure
 
-`	ext
+```
 .
 ├── src/
 │   ├── App.tsx
@@ -74,7 +74,7 @@ This repository is configured to host the Streamlit dashboard on a Stealite-comp
 ├── docker-compose.yml
 ├── package.json
 └── README.md
-`
+```
 
 ## Prerequisites
 
@@ -89,72 +89,65 @@ Make sure the following are installed:
 
 ### 1. Clone the repository
 
-`powershell
+```powershell
 git clone <repo-url>
 cd internship-prediction-recommendation-system
-`
+```
 
 ### 2. Install frontend dependencies
 
-`powershell
+```powershell
 npm install
-`
+```
 
 ### 3. Create and activate a Python virtual environment
 
-`powershell
+```powershell
 python -m venv .venv
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
 .\.venv\Scripts\Activate.ps1
-`
+```
 
 ### 4. Install Python dependencies
 
-`powershell
+```powershell
 python -m pip install --upgrade pip
 python -m pip install -r src/python/requirements.txt
-`
+```
 
 ## Running Locally
 
 ### Start the Streamlit Dashboard
 
-If port `8501` is available:
+Run the Streamlit app on port `8501`:
 
-`powershell
+```powershell
 cd C:\Users\sunil\Downloads\internship-prediction-recommendation-system
 .\.venv\Scripts\Activate.ps1
 python -m streamlit run src/python/streamlit_app.py --server.port 8501 --server.address 0.0.0.0
-`
-
-If port `8501` is already in use, start on `8502` instead:
-
-`powershell
-python -m streamlit run src/python/streamlit_app.py --server.port 8502 --server.address 0.0.0.0
-`
+```
 
 Open the dashboard in your browser at:
 
-- `http://localhost:8501` or
-- `http://localhost:8502`
+- `http://localhost:8501`
 
 ### Start the backend
 
 In one terminal:
 
-`powershell
- =  0.0.0.0
- = 5000
+```powershell
+$env:FLASK_RUN_HOST = '0.0.0.0'
+$env:FLASK_RUN_PORT = '5000'
 python src/python/flask_app.py
-`
+```
 
 ### Start the frontend
 
 In another terminal:
 
-`powershell
+```powershell
 npm run dev -- --host 0.0.0.0 --port 5173
-`
+```
 
 Open the app at:
 
@@ -165,15 +158,15 @@ Open the app at:
 
 From the repository root:
 
-`powershell
+```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\start-dev.ps1
-`
+```
 
 To stop the services:
 
-`powershell
+```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\stop-dev.ps1
-`
+```
 
 ## Permanent Local Server
 
@@ -181,13 +174,13 @@ For a local URL that stays available without keeping a terminal open:
 
 ### One-time setup
 
-`powershell
+```powershell
 npm install -g pm2
 npm run build
 npm install express compression
 pm2 start server.js --name internship-app
 pm2 save
-`
+```
 
 ### Access the app
 
@@ -197,19 +190,19 @@ Your app should be available at:
 
 ### Manage the background server
 
-`powershell
+```powershell
 pm2 status
 pm2 restart internship-app
 pm2 stop internship-app
 pm2 resurrect
 pm2 logs internship-app
-`
+```
 
 ## Optional: Run the Streamlit Dashboard
 
-`powershell
+```powershell
 streamlit run src/python/streamlit_app.py --server.port 8501
-`
+```
 
 ## How to Use the App
 
@@ -221,4 +214,4 @@ streamlit run src/python/streamlit_app.py --server.port 8501
 ## Notes
 
 - Local build and temporary files are excluded via .gitignore.
-- Large local data files such as preprocessing_output/processed_data.csv and 	mp_repos_backup/ are not tracked in git.
+- Large local data files such as preprocessing_output/processed_data.csv and tmp_repos_backup/ are not tracked in git.
