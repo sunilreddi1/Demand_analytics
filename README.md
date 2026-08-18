@@ -203,7 +203,7 @@ pm2 logs internship-app
 ## Optional: Run the Streamlit Dashboard
 
 ```powershell
-streamlit run src/python/streamlit_app.py --server.port 8501
+streamlit run src/python/streamlit_app.py
 ```
 
 ## How to Use the App
@@ -219,6 +219,6 @@ streamlit run src/python/streamlit_app.py --server.port 8501
 - Large local data files such as preprocessing_output/processed_data.csv and tmp_repos_backup/ are not tracked in git.
 - Open the dashboard in your browser at:
 
-- Local URL: http://localhost:8502
+- Local URL: http://localhost:8501
 - Network URL: http://192.168.0.100:8502
 - External URL: http://49.205.203.124:8502
